@@ -1,0 +1,22 @@
+[project]
+name = "ai-skin-specialist"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "audio-recorder-streamlit>=0.0.10",
+    "deepgram-sdk>=7.6.0",
+    "dotenv>=0.9.9",
+    "fastapi>=0.141.1",
+    "groq>=1.6.0",
+    "langchain>=1.3.14",
+    "langchain-google-genai>=4.3.2",
+    "pillow>=12.3.0",
+    "pyaudio>=0.2.14",
+    "pydub>=0.25.1",
+    "python-multipart>=0.0.32",
+    "speechrecognition>=3.17.0",
+    "streamlit>=1.60.0",
+    "uvicorn>=0.52.0",
+]
