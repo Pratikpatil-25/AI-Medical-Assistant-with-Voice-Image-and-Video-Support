@@ -25,15 +25,17 @@ def save_text2speech_file(text : str, save_filepath : Path):
     return save_filepath  
 
 
+# # this is used only for testing as a deployed server isn't supposed to play audio on server side.
+# # The audio is supposed to be played at the client side. So this function is not used in the pipeline. 
 
-# play audio
-def play_audio(save_filepath):
+# # play audio
+# def play_audio(save_filepath):
 
-    if platform.system == "Darwin":   # i.e. macOS
-        subprocess.run(["afplay", str(save_filepath)])
+#     if platform.system == "Darwin":   # i.e. macOS
+#         subprocess.run(["afplay", str(save_filepath)])
 
-    elif platform.system == "Linux":
-        subprocess.run(["xdg-open", str(save_filepath)])
+#     elif platform.system == "Linux":
+#         subprocess.run(["xdg-open", str(save_filepath)])
 
-    else: # Windows
-        os.startfile(save_filepath)
+#     else: # Windows
+#         os.startfile(save_filepath)
