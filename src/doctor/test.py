@@ -4,3 +4,4 @@ from pathlib import Path
 params = read_yaml(Path("params.yaml"))
 
 print(params["temperature"])
+print(params["gemini_model"])

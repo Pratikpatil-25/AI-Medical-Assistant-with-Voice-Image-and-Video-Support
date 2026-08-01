@@ -61,7 +61,7 @@ def doctor( patient_query, image_filepath : str| None = None, video_filepath : s
         return vid_response.text
 
     elif image_filepath : 
-        llm = ChatGoogleGenerativeAI(model = params.gemini_model, temperature = params["temperature"])
+        llm = ChatGoogleGenerativeAI(model = params["gemini_model"], temperature = params["temperature"])
 
         image = Image.open(image_filepath)
 
