@@ -150,7 +150,7 @@ st.markdown(
 audio_bytes = audio_recorder(
     text="Click the mic to Start the recording, once you stop speaking, the recorder will automatically stop.",
     icon_size="2x",
-    pause_threshold=3.0,
+    pause_threshold=2.0,
 )
 if audio_bytes:
     st.markdown('<span class="badge badge-ready">✓ Audio Recorded</span>', unsafe_allow_html=True)
