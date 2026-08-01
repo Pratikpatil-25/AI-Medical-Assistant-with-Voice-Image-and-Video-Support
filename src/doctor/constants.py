@@ -44,6 +44,8 @@ def prompt(patient_query):
 
         NOTE : THE RESPONSE SHOULD BE IN SIMPLE TEXT WITH NO BOLD, ITALICS, OR ANY FORMATTING. DO NOT USE BULLET POINTS OR NUMBERED LISTS. AVOID USING HEADINGS OR TITLES. DO NOT REPEAT THE PATIENT'S QUERY IN THE RESPONSE. KEEP THE RESPONSE NATURAL AND CONVERSATIONAL.
         AS THIS RESPONSE WILL BE CONVERTED TO AUDIO.
+
+        Note : If patient only provides image with audio then respond with shorter response of 50-100 words. If patient only provides video with audio then respond with shorter response of 20 - 30 words and always ask him to provide video as well. If patient provides both image and video, then respond using the above mentioned detailed format response.
         Patient query : {patient_query}"""
     )
     return prompt
