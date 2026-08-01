@@ -31,7 +31,7 @@ https://aimedassistant.streamlit.app/
 ---
 
 <p align="center">
-  <img src="assets/res.png" width="1000">
+  <img src="assets/resp.png" width="1000">
 </p>
 
 ---
