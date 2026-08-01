@@ -1,0 +1,6 @@
+gemini_model : "gemini-2.5-flash"
+temperature : 0.1
+record_audio_timeout : 10
+record_audio_phrase_time_limit : None
+transcription_model : "whisper-large-v3-turbo"
+deepgram_model : "aura-2-thalia-en"

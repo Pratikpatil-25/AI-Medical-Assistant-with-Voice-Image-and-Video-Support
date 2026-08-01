@@ -9,9 +9,9 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from brain import doctor
-from speech2text import transcribe_patient_voice
-from text2speech import save_text2speech_file
+from components.brain import doctor
+from components.speech2text import transcribe_patient_voice
+from components.text2speech import save_text2speech_file
 
 app = FastAPI(title="AI Medical Assistant API")
 

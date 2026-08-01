@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from deepgram import DeepgramClient
+from config import params
 
 import platform
 import subprocess
@@ -14,7 +15,7 @@ def save_text2speech_file(text : str, save_filepath : Path):
     # 2. create client
     client = DeepgramClient(api_key = os.getenv("DEEPGRAM_API_KEY"))
 
-    model = client.speak.v1.audio.generate(model = "aura-2-thalia-en", text = text, encoding = "mp3")
+    model = client.speak.v1.audio.generate(model = params["deepgram_model"], text = text, encoding = "mp3")
 
     # save audio
     with save_filepath.open("wb") as file: 

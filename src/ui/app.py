@@ -4,6 +4,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from audio_recorder_streamlit import audio_recorder
+from config import BACKEND_URL
 
 st.set_page_config(
     page_title="AI Medical Assistant",
@@ -108,7 +109,7 @@ st.markdown(
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown("### ⚙️ Settings")
-    default_backend = os.environ.get("BACKEND_URL", "http://localhost:8000")
+    default_backend = BACKEND_URL
     backend_url = st.text_input("Backend URL", value=default_backend)
     st.markdown("---")
     st.markdown(

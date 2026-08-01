@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from io import BytesIO
 from pathlib import Path
 import time
+from constants import prompt
+from config import params
 
 
 load_dotenv()
@@ -19,14 +21,7 @@ load_dotenv()
 
 def doctor( patient_query, image_filepath : str| None = None, video_filepath : str | None = None):
 
-    prompt = (
-    "You are a confident, natural doctor specializing in skin care. Speak with the reassurance, clarity, and authority of a real doctor. "
-    "Limit your entire response to two or three sentences maximum. "
-    "Suggest some points about what to take care of and what to avoid that can worsen the case. Give some short precautions."
-    "If the patient has not provided a video and only an image, your absolute priority is to ask them to provide a video first because mention that you need more details and you need a video showing the problem. "
-    "Do not use any special characters, symbols, asterisks, or markdown formatting in your response because further it will be converted directly to audio.\n\n"
-    f"Patient text: {patient_query}"
-    )
+    model_prompt = prompt(patient_query)
 
 
     if video_filepath:
@@ -56,17 +51,17 @@ def doctor( patient_query, image_filepath : str| None = None, video_filepath : s
             print("Video ready!")
 
         vid_response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model=params["gemini_model"],
             contents=[
                 video_file,
-                prompt
+                model_prompt
             ]
         )
 
         return vid_response.text
 
     elif image_filepath : 
-        llm = ChatGoogleGenerativeAI(model = "gemini-2.5-flash", temperature = 0.3)
+        llm = ChatGoogleGenerativeAI(model = params.gemini_model, temperature = params["temperature"])
 
         image = Image.open(image_filepath)
 
@@ -81,7 +76,7 @@ def doctor( patient_query, image_filepath : str| None = None, video_filepath : s
         message = HumanMessage(
             content= [{
                 "type" : "text",
-                "text" : prompt
+                "text" : model_prompt
             },
             {
                 "type": "image_url",

@@ -1,12 +1,11 @@
 import speech_recognition as sr   # Provides access to: Microphone, Audio recording, Speech recognition APIs
 from pydub import AudioSegment    # Used to: Read audio files, Convert formats, Export audio. Here it converts WAV → MP3.
 from io import BytesIO            # Creates an in-memory file instead of writing a temporary WAV file.
-import logging
+from logger import logger
+from config import params
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
-def record_audio(file_path, timeout = 20, phrase_time_limit = None):
+def record_audio(file_path, timeout = params["record_audio_timeout"], phrase_time_limit = params["record_audio_phrase_time_limit"]):
     """
     Simplified function to record audio from the microphone and save it as an MP3 file.
 
@@ -19,17 +18,17 @@ def record_audio(file_path, timeout = 20, phrase_time_limit = None):
     recognizer = sr.Recognizer()
 
     with sr.Microphone() as source : 
-        logging.info("Adjusting for ambient noise...")
+        logger.info("Adjusting for ambient noise...")
         recognizer.adjust_for_ambient_noise(source, duration = 1)  # For 1 second it listens to background sounds: 
                                                                    # Fan noise, AC noise, Keyboard noise and calculates a noise threshold.
-        logging.info("Start speaking now...")
+        logger.info("Start speaking now...")
 
         # Record the audio
         audio_data = recognizer.listen( source,                                   # returns AudioData object
                                         timeout = timeout,
                                         phrase_time_limit = phrase_time_limit
                                         )
-        logging.info("Recording complete.")
+        logger.info("Recording complete.")
 
         # Convert the recorded audio to an MP3 file
         wav_data = audio_data.get_wav_data()                                  # Convert Recording to WAV Byte. Produces - "bytes" containing WAV audio.
@@ -40,7 +39,7 @@ def record_audio(file_path, timeout = 20, phrase_time_limit = None):
                               format="mp3",
                               bitrate="128k"
                             )
-        logging.info(f"Audio saved to {file_path}")
+        logger.info(f"Audio saved to {file_path}")
 
 
 
@@ -58,7 +57,7 @@ def transcribe_patient_voice(audio_filepath):
     client = Groq(api_key = groq_api_key)
 
     with open(audio_filepath, "rb") as audio_file:
-        transcription = client.audio.transcriptions.create(file = audio_file, model = os.environ.get("WHISPER_MODEL", "whisper-large-v3-turbo"))
+        transcription = client.audio.transcriptions.create(file = audio_file, model = params["transcription_model"])
 
     return transcription.text
 

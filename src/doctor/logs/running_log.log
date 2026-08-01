@@ -1,0 +1,7 @@
+[ 2026-08-01 17:24:26,274 : INFO : common : yaml file: params.yaml loaded successfully ]
+[ 2026-08-01 17:27:02,697 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.475600 seconds ]
+[ 2026-08-01 17:27:03,183 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.771776 seconds ]
+[ 2026-08-01 17:27:13,992 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.475670 seconds ]
+[ 2026-08-01 17:27:14,475 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.947328 seconds ]
+[ 2026-08-01 17:27:20,131 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.462452 seconds ]
+[ 2026-08-01 17:27:20,612 : INFO : _base_client : Retrying request to /openai/v1/audio/transcriptions in 0.770099 seconds ]

@@ -1,6 +1,6 @@
-from brain import doctor
-from speech2text import record_audio, transcribe_patient_voice
-from text2speech import save_text2speech_file, play_audio
+from src.doctor.components.brain import doctor
+from src.doctor.components.speech2text import record_audio, transcribe_patient_voice
+from src.doctor.components.text2speech import save_text2speech_file, play_audio
 from pathlib import Path
 
 
@@ -17,4 +17,4 @@ def pipeline(audio_filepath, image_filepath, video_filepath):
     play_audio(Path("doctor_audio_response.mp3"))
 
 if __name__ == "__main__":
-    pipeline(audio_filepath="patient_query_audio.mp3", image_filepath = "test-image.jpeg", video_filepath = "test-video.mp4")
+    pipeline(audio_filepath="patient_query_audio.mp3", image_filepath = "samples/test-image.jpeg", video_filepath = "samples/test-video.mp4")
