@@ -143,20 +143,20 @@ st.markdown(
 st.markdown(
     """
     <div class="step-card">
-        <div class="step-title"><span class="step-number">1</span> Record your voice</div>
+        <div class="step-title"><span class="step-number">1</span> Record your Voice</div>
     """,
     unsafe_allow_html=True,
 )
 audio_bytes = audio_recorder(
-    text="Click the mic to start / stop recording",
+    text="Click the mic to Start the recording, once you stop speaking, the recorder will automatically stop.",
     icon_size="2x",
     pause_threshold=3.0,
 )
 if audio_bytes:
-    st.markdown('<span class="badge badge-ready">✓ Audio recorded</span>', unsafe_allow_html=True)
+    st.markdown('<span class="badge badge-ready">✓ Audio Recorded</span>', unsafe_allow_html=True)
     st.audio(audio_bytes, format="audio/wav")
 else:
-    st.markdown('<span class="badge badge-empty">No audio yet</span>', unsafe_allow_html=True)
+    st.markdown('<span class="badge badge-empty">No Audio yet</span>', unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
@@ -168,7 +168,7 @@ with col1:
     st.markdown(
         """
         <div class="step-card">
-            <div class="step-title"><span class="step-number">2</span> Attach an image</div>
+            <div class="step-title"><span class="step-number">2</span> Attach an Image</div>
         """,
         unsafe_allow_html=True,
     )
@@ -177,7 +177,7 @@ with col1:
     )
     if image_file:
         st.image(image_file, use_container_width=True)
-        st.markdown('<span class="badge badge-ready">✓ Image attached</span>', unsafe_allow_html=True)
+        st.markdown('<span class="badge badge-ready">✓ Image Attached</span>', unsafe_allow_html=True)
     else:
         st.markdown('<span class="badge badge-empty">None attached</span>', unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
@@ -186,7 +186,7 @@ with col2:
     st.markdown(
         """
         <div class="step-card">
-            <div class="step-title"><span class="step-number">3</span> Attach a video</div>
+            <div class="step-title"><span class="step-number">3</span> Attach a Video</div>
         """,
         unsafe_allow_html=True,
     )
@@ -195,7 +195,7 @@ with col2:
     )
     if video_file:
         st.video(video_file)
-        st.markdown('<span class="badge badge-ready">✓ Video attached</span>', unsafe_allow_html=True)
+        st.markdown('<span class="badge badge-ready">✓ Video Attached</span>', unsafe_allow_html=True)
     else:
         st.markdown('<span class="badge badge-empty">None attached</span>', unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
@@ -230,7 +230,7 @@ if submit:
             st.markdown(
                 """
                 <div class="response-card">
-                    <div class="response-label">Transcribed query</div>
+                    <div class="response-label">Transcribed Query</div>
                 """,
                 unsafe_allow_html=True,
             )
@@ -240,7 +240,7 @@ if submit:
             st.markdown(
                 """
                 <div class="response-card">
-                    <div class="response-label">🩺 Doctor's response</div>
+                    <div class="response-label">🩺 Doctor's Response</div>
                 """,
                 unsafe_allow_html=True,
             )
