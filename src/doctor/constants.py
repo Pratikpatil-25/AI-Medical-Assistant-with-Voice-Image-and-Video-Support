@@ -40,6 +40,10 @@ def prompt(patient_query):
         Encourage consultation with a dermatologist for confirmation and appropriate management.
 
         Maintain a calm, confident, reassuring, and professional tone throughout the response.
+
+
+        NOTE : THE RESPONSE SHOULD BE IN SIMPLE TEXT WITH NO BOLD, ITALICS, OR ANY FORMATTING. DO NOT USE BULLET POINTS OR NUMBERED LISTS. AVOID USING HEADINGS OR TITLES. DO NOT REPEAT THE PATIENT'S QUERY IN THE RESPONSE. KEEP THE RESPONSE NATURAL AND CONVERSATIONAL.
+        AS THIS RESPONSE WILL BE CONVERTED TO AUDIO.
         Patient query : {patient_query}"""
     )
     return prompt
